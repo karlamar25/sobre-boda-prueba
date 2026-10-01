@@ -1,16 +1,19 @@
 :root {
     --verde: #2F3B2D;
-    --verde-profundo: #263024;
+    --verde-oscuro: #263024;
 
     --marfil: #F8F4EC;
     --marfil-claro: #FCFAF5;
 
     --dorado: #B79A62;
-    --dorado-suave: rgba(183, 154, 98, 0.55);
 
-    --sombra: rgba(28, 31, 25, 0.28);
-    --sombra-suave: rgba(28, 31, 25, 0.14);
+    --sombra: rgba(25, 29, 23, 0.28);
 }
+
+
+/* =========================================
+   BASE
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -35,13 +38,12 @@ body {
 }
 
 
-/* =====================================================
-   ESCENA
-===================================================== */
+/* =========================================
+   INTRO
+========================================= */
 
 .intro {
     position: fixed;
-
     inset: 0;
 
     width: 100%;
@@ -51,61 +53,68 @@ body {
         radial-gradient(
             circle at center,
             #ffffff 0%,
-            #fbfaf7 58%,
-            #f6f3ed 100%
+            #fbfaf7 65%,
+            #f5f2ec 100%
         );
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
 
     overflow: hidden;
 
     z-index: 9999;
 }
 
+
+/* =========================================
+   ESCENA
+========================================= */
+
 .escena {
-    position: relative;
+    position: absolute;
 
-    width: 470px;
-    height: 310px;
+    left: 50%;
+    top: 50%;
 
-    display: flex;
+    width: 480px;
+    height: 320px;
 
-    align-items: center;
-    justify-content: center;
+    transform:
+        translate(-50%, -50%);
 
     perspective: 1800px;
 
-    z-index: 20;
+    z-index: 10;
 }
 
 
-/* =====================================================
+/* =========================================
    SOBRE
-===================================================== */
+========================================= */
 
 .sobre {
-    position: relative;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
 
     width: 450px;
     height: 285px;
+
+    transform:
+        translate(-50%, -50%);
 
     transform-style: preserve-3d;
 
     filter:
         drop-shadow(
-            0 28px 30px var(--sombra)
+            0 24px 28px var(--sombra)
         );
 }
 
 
-/* =====================================================
-   PAPEL INTERIOR
-===================================================== */
+/* =========================================
+   INTERIOR
+========================================= */
 
-.papel-interior {
+.interior {
     position: absolute;
 
     inset: 0;
@@ -113,37 +122,31 @@ body {
     background:
         linear-gradient(
             145deg,
-            #fffdf8 0%,
-            var(--marfil) 55%,
-            #eee8dc 100%
+            #fffefa,
+            var(--marfil)
         );
 
     border-radius: 3px;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(183,154,98,0.12);
 
     z-index: 1;
 }
 
 
-/* =====================================================
+/* =========================================
    TARJETA
-===================================================== */
+========================================= */
 
 .tarjeta {
     position: absolute;
 
     left: 50%;
+    bottom: 15px;
 
-    bottom: 16px;
-
-    width: 76%;
-    height: 86%;
+    width: 78%;
+    height: 88%;
 
     transform:
-        translateX(-50%)
-        translateY(48px);
+        translate(-50%, 60px);
 
     background:
         linear-gradient(
@@ -153,34 +156,28 @@ body {
         );
 
     border: 1px solid
-        rgba(183,154,98,0.35);
+        rgba(183, 154, 98, 0.38);
 
     box-shadow:
-        0 16px 30px
-        rgba(28,31,25,0.16);
+        0 18px 32px
+        rgba(25, 29, 23, 0.17);
 
     opacity: 0;
 
-    z-index: 4;
+    z-index: 3;
 }
 
-.tarjeta::before {
-    content: "";
 
+/* Marco */
+
+.tarjeta-borde {
     position: absolute;
 
-    inset: 9px;
+    inset: 10px;
 
-    border: 1px solid
-        rgba(183,154,98,0.28);
-
-    pointer-events: none;
-}
-
-.tarjeta-marco {
-    position: absolute;
-
-    inset: 24px;
+    border:
+        1px solid
+        rgba(183, 154, 98, 0.30);
 
     display: flex;
 
@@ -194,48 +191,63 @@ body {
     color: var(--verde);
 }
 
-.tarjeta-small {
-    font-size: 12px;
 
-    letter-spacing: 7px;
+/* BODA */
 
-    margin-left: 7px;
+.tarjeta-titulo {
+    font-size: 13px;
+
+    letter-spacing: 8px;
+
+    margin-left: 8px;
 
     color: var(--dorado);
 }
 
-.tarjeta-linea {
-    width: 48px;
+
+/* Línea */
+
+.tarjeta-adorno {
+    width: 55px;
     height: 1px;
+
+    margin:
+        18px 0
+        21px;
 
     background:
         var(--dorado);
-
-    margin: 16px 0 20px;
 }
 
+
+/* Nombres */
+
 .tarjeta-nombres {
-    font-size: 36px;
-
-    line-height: 1.15;
-
-    letter-spacing: 1px;
+    font-size: 39px;
 
     font-style: italic;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
 }
 
 .tarjeta-nombres span {
-    font-size: 22px;
+    margin:
+        0 7px;
 
-    margin: 0 7px;
+    font-size: 23px;
 
     font-style: normal;
 
     color: var(--dorado);
 }
 
+
+/* Fecha */
+
 .tarjeta-fecha {
-    margin-top: 20px;
+    margin-top: 22px;
 
     font-size: 10px;
 
@@ -247,11 +259,11 @@ body {
 }
 
 
-/* =====================================================
-   BASE DEL SOBRE
-===================================================== */
+/* =========================================
+   PARTE POSTERIOR
+========================================= */
 
-.sobre-base {
+.sobre-posterior {
     position: absolute;
 
     inset: 0;
@@ -259,17 +271,9 @@ body {
     background:
         linear-gradient(
             145deg,
-            #344131,
+            #354333,
             var(--verde) 60%,
-            #283326 100%
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            100% 100%,
-            0 100%
+            var(--verde-oscuro)
         );
 
     border-radius: 3px;
@@ -278,9 +282,9 @@ body {
 }
 
 
-/* =====================================================
-   FRENTE DEL SOBRE
-===================================================== */
+/* =========================================
+   FRENTE
+========================================= */
 
 .sobre-frente {
     position: absolute;
@@ -293,28 +297,28 @@ body {
 
     background:
         linear-gradient(
-            150deg,
-            #344231 0%,
-            var(--verde) 58%,
-            #293429 100%
+            145deg,
+            #354333,
+            var(--verde) 60%,
+            var(--verde-oscuro)
         );
 
     clip-path:
         polygon(
             0 0,
-            50% 59%,
+            50% 61%,
             100% 0,
             100% 100%,
             0 100%
         );
 
-    z-index: 7;
+    z-index: 6;
 }
 
 
-/* =====================================================
+/* =========================================
    SOLAPA
-===================================================== */
+========================================= */
 
 .solapa {
     position: absolute;
@@ -328,9 +332,9 @@ body {
     background:
         linear-gradient(
             145deg,
-            #394735 0%,
-            var(--verde) 58%,
-            #283328 100%
+            #394836,
+            var(--verde) 60%,
+            #283327
         );
 
     clip-path:
@@ -349,13 +353,13 @@ body {
     backface-visibility:
         visible;
 
-    z-index: 10;
+    z-index: 9;
 }
 
 
-/* Línea superior fina */
+/* Línea superior */
 
-.solapa::before {
+.solapa::after {
     content: "";
 
     position: absolute;
@@ -370,61 +374,57 @@ body {
         linear-gradient(
             90deg,
             transparent,
-            rgba(183,154,98,0.65),
+            rgba(183,154,98,.65),
             transparent
         );
 }
 
 
-/* =====================================================
-   INICIALES
-===================================================== */
+/* =========================================
+   MONOGRAMA
+========================================= */
 
-.iniciales {
+.monograma {
     position: absolute;
 
     left: 50%;
-    top: 43%;
+    top: 42%;
 
     transform:
         translate(-50%, -50%);
 
     color: var(--marfil);
 
-    font-size: 39px;
+    font-size: 42px;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
     white-space: nowrap;
-
-    text-shadow:
-        0 2px 8px rgba(0,0,0,0.18);
 }
 
-.iniciales span {
-    font-size: 23px;
+.monograma span {
+    font-size: 25px;
 
     font-style: italic;
 
     margin: 0 5px;
 
-    color:
-        var(--dorado);
+    color: var(--dorado);
 }
 
 
-/* =====================================================
+/* =========================================
    SELLO
-===================================================== */
+========================================= */
 
 .sello {
     position: absolute;
 
     left: 50%;
-    top: 63%;
+    top: 64%;
 
-    width: 67px;
-    height: 67px;
+    width: 68px;
+    height: 68px;
 
     transform:
         translate(-50%, -50%);
@@ -434,25 +434,24 @@ body {
     background:
         radial-gradient(
             circle at 32% 28%,
-            #fffef9 0%,
-            #f5eee2 45%,
-            #ded1bd 100%
+            #fffefa 0%,
+            #f4ede1 50%,
+            #ded1bc 100%
         );
 
     border:
-        1px solid #d1c2a8;
+        1px solid #d0c0a5;
 
     box-shadow:
-        0 5px 13px rgba(0,0,0,0.24),
-        inset 0 0 0 2px
-        rgba(255,255,255,0.5);
+        0 6px 14px
+        rgba(0,0,0,.24);
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    z-index: 15;
+    z-index: 12;
 }
 
 .sello::before {
@@ -464,19 +463,12 @@ body {
 
     border:
         1px solid
-        rgba(183,154,98,0.45);
+        rgba(183,154,98,.45);
 
     border-radius: 50%;
 }
 
-.sello-borde {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 3px;
-
+.sello-inner {
     color: var(--verde);
 
     font-size: 12px;
@@ -484,16 +476,16 @@ body {
     letter-spacing: 1px;
 }
 
-.sello-borde i {
-    font-style: italic;
-
+.sello-inner span {
     color: var(--dorado);
+
+    font-style: italic;
 }
 
 
-/* =====================================================
-   PORTADA FINAL
-===================================================== */
+/* =========================================
+   PORTADA
+========================================= */
 
 .portada {
     position: absolute;
@@ -503,12 +495,10 @@ body {
     background:
         linear-gradient(
             145deg,
-            #344131,
-            var(--verde) 58%,
-            #293429 100%
+            #354333,
+            var(--verde) 60%,
+            var(--verde-oscuro)
         );
-
-    color: var(--marfil);
 
     display: flex;
 
@@ -519,10 +509,28 @@ body {
 
     opacity: 0;
 
-    pointer-events: none;
+    visibility: hidden;
 
     z-index: 1;
 }
+
+
+/* Solo aparece cuando JS agrega .mostrar */
+
+.portada.mostrar {
+    visibility: visible;
+
+    animation:
+        aparecerPortada
+        1s
+        ease
+        forwards;
+}
+
+
+/* =========================================
+   CONTENIDO PORTADA
+========================================= */
 
 .portada-contenido {
     display: flex;
@@ -531,21 +539,18 @@ body {
 
     align-items: center;
 
-    transform:
-        translateY(8px);
+    color: var(--marfil);
 }
 
-.portada-iniciales {
-    font-size: 61px;
+.portada-monograma {
+    font-size: 62px;
 
     letter-spacing: 8px;
-
-    color: var(--marfil);
 
     margin-bottom: 20px;
 }
 
-.portada-iniciales span {
+.portada-monograma span {
     font-size: 31px;
 
     font-style: italic;
@@ -557,25 +562,26 @@ body {
     width: 72px;
     height: 1px;
 
-    background: var(--dorado);
+    background:
+        var(--dorado);
 
-    margin-bottom: 22px;
+    margin-bottom: 23px;
 }
 
-.portada-etiqueta {
+.portada-pequeno {
     font-size: 11px;
 
     letter-spacing: 6px;
 
     margin-left: 6px;
 
-    color: #d8ccb7;
+    color: #d8ccb8;
 }
 
 .portada h1 {
-    margin-top: 16px;
+    margin-top: 17px;
 
-    font-size: 43px;
+    font-size: 44px;
 
     font-weight: normal;
 
@@ -589,58 +595,65 @@ body {
 
     letter-spacing: 5px;
 
-    color: #d8ccb7;
+    color: #d8ccb8;
 }
 
 
-/* =====================================================
-   ANIMACIONES
-===================================================== */
+/* =========================================
+   ANIMACIÓN SOBRE
+========================================= */
 
 .sobre.abrir .solapa {
     animation:
         abrirSolapa
-        1.15s
+        1.05s
         cubic-bezier(.65,.05,.36,1)
         forwards;
 }
 
+
+/* =========================================
+   ANIMACIÓN TARJETA
+========================================= */
+
 .sobre.abrir .tarjeta {
     animation:
         sacarTarjeta
-        1.25s
+        1.35s
         cubic-bezier(.22,.61,.36,1)
         forwards;
 }
 
+
+/* =========================================
+   SELLO
+========================================= */
+
 .sobre.abrir .sello {
     animation:
-        salirSello
+        ocultarSello
         .45s
         ease
         forwards;
 }
 
-.intro.finalizar .escena {
-    animation:
-        desaparecerEscena
-        .75s
-        cubic-bezier(.4,0,.2,1)
-        forwards;
-}
 
-.intro.finalizar .portada {
+/* =========================================
+   DESAPARECER SOBRE
+========================================= */
+
+.escena.salir {
     animation:
-        aparecerPortada
-        .95s
+        salirEscena
+        .65s
         ease
         forwards;
 }
 
 
-/* =====================================================
+/* =========================================
    KEYFRAMES
-===================================================== */
+========================================= */
 
 @keyframes abrirSolapa {
 
@@ -655,14 +668,14 @@ body {
     }
 }
 
+
 @keyframes sacarTarjeta {
 
     0% {
         opacity: 0;
 
         transform:
-            translateX(-50%)
-            translateY(48px);
+            translate(-50%, 60px);
     }
 
     20% {
@@ -673,15 +686,28 @@ body {
         opacity: 1;
 
         transform:
-            translateX(-50%)
-            translateY(-132px);
+            translate(-50%, -145px);
     }
 }
 
-@keyframes salirSello {
+
+@keyframes ocultarSello {
 
     0% {
         opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes salirEscena {
+
+    0% {
+        opacity: 1;
+
         transform:
             translate(-50%, -50%)
             scale(1);
@@ -692,26 +718,10 @@ body {
 
         transform:
             translate(-50%, -50%)
-            scale(.88);
-    }
-}
-
-@keyframes desaparecerEscena {
-
-    0% {
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
             scale(1.025);
     }
 }
+
 
 @keyframes aparecerPortada {
 
@@ -725,15 +735,15 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================
    MÓVIL
-===================================================== */
+========================================= */
 
 @media (max-width: 600px) {
 
     .escena {
-        width: 340px;
-        height: 230px;
+        width: 350px;
+        height: 235px;
     }
 
     .sobre {
@@ -741,63 +751,55 @@ body {
         height: 210px;
     }
 
-    .iniciales {
-        font-size: 29px;
-
-        letter-spacing: 3px;
+    .monograma {
+        font-size: 30px;
     }
 
-    .iniciales span {
-        font-size: 18px;
-
-        margin: 0 3px;
+    .monograma span {
+        font-size: 19px;
     }
 
     .sello {
-        width: 52px;
-        height: 52px;
+        width: 53px;
+        height: 53px;
     }
 
-    .sello-borde {
+    .sello-inner {
         font-size: 9px;
     }
 
     .tarjeta-nombres {
-        font-size: 27px;
+        font-size: 28px;
     }
 
-    .tarjeta-small {
+    .tarjeta-titulo {
         font-size: 9px;
 
         letter-spacing: 5px;
     }
 
     .tarjeta-fecha {
-        font-size: 8px;
+        font-size: 7px;
 
         letter-spacing: 3px;
     }
 
-    .portada-iniciales {
-        font-size: 45px;
-    }
-
-    .portada-iniciales span {
-        font-size: 24px;
+    .portada-monograma {
+        font-size: 46px;
     }
 
     .portada h1 {
         font-size: 30px;
     }
 
-    .portada-etiqueta {
-        font-size: 9px;
+    .portada-pequeno {
+        font-size: 8px;
 
         letter-spacing: 4px;
     }
 
     .portada p {
-        font-size: 9px;
+        font-size: 8px;
 
         letter-spacing: 3px;
     }
