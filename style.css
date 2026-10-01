@@ -1,9 +1,15 @@
 :root {
     --verde: #2F3B2D;
+    --verde-profundo: #263024;
+
     --marfil: #F8F4EC;
-    --marfil-sello: #F3EBDD;
+    --marfil-claro: #FCFAF5;
+
     --dorado: #B79A62;
-    --sombra: rgba(0, 0, 0, 0.22);
+    --dorado-suave: rgba(183, 154, 98, 0.55);
+
+    --sombra: rgba(28, 31, 25, 0.28);
+    --sombra-suave: rgba(28, 31, 25, 0.14);
 }
 
 * {
@@ -21,101 +27,163 @@ body {
 body {
     overflow: hidden;
     background: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
-/* =========================================
-   INTRO
-========================================= */
+
+/* =====================================================
+   ESCENA
+===================================================== */
 
 .intro {
     position: fixed;
+
     inset: 0;
+
     width: 100%;
     height: 100%;
-    background: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff 0%,
+            #fbfaf7 58%,
+            #f6f3ed 100%
+        );
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
+
     z-index: 9999;
 }
 
-/* =========================================
-   SOBRE
-========================================= */
-
-.sobre-contenedor {
+.escena {
     position: relative;
-    width: 440px;
-    height: 290px;
 
-    perspective: 1400px;
+    width: 470px;
+    height: 310px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1800px;
 
     z-index: 20;
 }
 
+
+/* =====================================================
+   SOBRE
+===================================================== */
+
 .sobre {
     position: relative;
-    width: 100%;
-    height: 100%;
+
+    width: 450px;
+    height: 285px;
 
     transform-style: preserve-3d;
 
-    filter: drop-shadow(
-        0 22px 28px var(--sombra)
-    );
+    filter:
+        drop-shadow(
+            0 28px 30px var(--sombra)
+        );
 }
 
-/* Interior */
 
-.interior-sobre {
+/* =====================================================
+   PAPEL INTERIOR
+===================================================== */
+
+.papel-interior {
     position: absolute;
+
     inset: 0;
 
-    background: var(--marfil);
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8 0%,
+            var(--marfil) 55%,
+            #eee8dc 100%
+        );
 
     border-radius: 3px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(183,154,98,0.12);
 
     z-index: 1;
 }
 
-/* =========================================
-   CARTA
-========================================= */
 
-.carta {
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.tarjeta {
     position: absolute;
 
     left: 50%;
-    bottom: 12px;
 
-    width: 82%;
-    height: 88%;
+    bottom: 16px;
+
+    width: 76%;
+    height: 86%;
 
     transform:
         translateX(-50%)
-        translateY(55px);
+        translateY(48px);
 
-    background: var(--marfil);
+    background:
+        linear-gradient(
+            145deg,
+            #fffefa,
+            var(--marfil-claro)
+        );
 
-    border: 1px solid rgba(183, 154, 98, 0.35);
+    border: 1px solid
+        rgba(183,154,98,0.35);
 
     box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.12);
+        0 16px 30px
+        rgba(28,31,25,0.16);
 
     opacity: 0;
 
-    z-index: 3;
+    z-index: 4;
 }
 
-.carta-contenido {
-    width: 100%;
-    height: 100%;
+.tarjeta::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border: 1px solid
+        rgba(183,154,98,0.28);
+
+    pointer-events: none;
+}
+
+.tarjeta-marco {
+    position: absolute;
+
+    inset: 24px;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -124,31 +192,95 @@ body {
     text-align: center;
 
     color: var(--verde);
-
-    gap: 18px;
 }
 
-.carta-titulo {
-    font-size: 19px;
+.tarjeta-small {
+    font-size: 12px;
 
-    letter-spacing: 9px;
+    letter-spacing: 7px;
 
-    font-weight: normal;
+    margin-left: 7px;
+
+    color: var(--dorado);
 }
 
-.carta-nombres {
-    font-size: 37px;
+.tarjeta-linea {
+    width: 48px;
+    height: 1px;
+
+    background:
+        var(--dorado);
+
+    margin: 16px 0 20px;
+}
+
+.tarjeta-nombres {
+    font-size: 36px;
+
+    line-height: 1.15;
 
     letter-spacing: 1px;
 
     font-style: italic;
-
-    color: var(--verde);
 }
 
-/* =========================================
+.tarjeta-nombres span {
+    font-size: 22px;
+
+    margin: 0 7px;
+
+    font-style: normal;
+
+    color: var(--dorado);
+}
+
+.tarjeta-fecha {
+    margin-top: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-left: 4px;
+
+    color: #777267;
+}
+
+
+/* =====================================================
+   BASE DEL SOBRE
+===================================================== */
+
+.sobre-base {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #344131,
+            var(--verde) 60%,
+            #283326 100%
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius: 3px;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
    FRENTE DEL SOBRE
-========================================= */
+===================================================== */
 
 .sobre-frente {
     position: absolute;
@@ -157,36 +289,49 @@ body {
     bottom: 0;
 
     width: 100%;
-    height: 72%;
+    height: 74%;
 
-    background: var(--verde);
+    background:
+        linear-gradient(
+            150deg,
+            #344231 0%,
+            var(--verde) 58%,
+            #293429 100%
+        );
 
     clip-path:
         polygon(
             0 0,
-            50% 62%,
+            50% 59%,
             100% 0,
             100% 100%,
             0 100%
         );
 
-    z-index: 6;
+    z-index: 7;
 }
 
-/* =========================================
-   TAPA
-========================================= */
 
-.tapa {
+/* =====================================================
+   SOLAPA
+===================================================== */
+
+.solapa {
     position: absolute;
 
     left: 0;
     top: 0;
 
     width: 100%;
-    height: 68%;
+    height: 70%;
 
-    background: var(--verde);
+    background:
+        linear-gradient(
+            145deg,
+            #394735 0%,
+            var(--verde) 58%,
+            #283328 100%
+        );
 
     clip-path:
         polygon(
@@ -195,106 +340,173 @@ body {
             50% 100%
         );
 
-    transform-origin: top center;
+    transform-origin:
+        top center;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
-    z-index: 8;
+    backface-visibility:
+        visible;
+
+    z-index: 10;
 }
 
-/* =========================================
-   MONOGRAMA
-========================================= */
 
-.monograma {
+/* Línea superior fina */
+
+.solapa::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    top: 1px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(183,154,98,0.65),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   INICIALES
+===================================================== */
+
+.iniciales {
     position: absolute;
 
     left: 50%;
-    top: 42%;
+    top: 43%;
 
     transform:
         translate(-50%, -50%);
 
     color: var(--marfil);
 
-    font-size: 42px;
+    font-size: 39px;
 
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 
     white-space: nowrap;
 
-    font-weight: normal;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.18);
 }
 
-.monograma span {
-    font-size: 27px;
+.iniciales span {
+    font-size: 23px;
 
     font-style: italic;
 
     margin: 0 5px;
+
+    color:
+        var(--dorado);
 }
 
-/* =========================================
+
+/* =====================================================
    SELLO
-========================================= */
+===================================================== */
 
 .sello {
     position: absolute;
 
     left: 50%;
-    top: 64%;
+    top: 63%;
+
+    width: 67px;
+    height: 67px;
 
     transform:
         translate(-50%, -50%);
-
-    width: 68px;
-    height: 68px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 35% 30%,
-            #fffdf7 0%,
-            var(--marfil-sello) 55%,
-            #DED2BD 100%
+            circle at 32% 28%,
+            #fffef9 0%,
+            #f5eee2 45%,
+            #ded1bd 100%
         );
 
-    border: 2px solid #D2C3A9;
+    border:
+        1px solid #d1c2a8;
 
     box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.25);
+        0 5px 13px rgba(0,0,0,0.24),
+        inset 0 0 0 2px
+        rgba(255,255,255,0.5);
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
+    z-index: 15;
+}
+
+.sello::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 6px;
+
+    border:
+        1px solid
+        rgba(183,154,98,0.45);
+
+    border-radius: 50%;
+}
+
+.sello-borde {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
     color: var(--verde);
 
-    font-size: 14px;
+    font-size: 12px;
 
     letter-spacing: 1px;
-
-    z-index: 12;
 }
 
-.sello span {
+.sello-borde i {
     font-style: italic;
 
-    margin: 0 2px;
+    color: var(--dorado);
 }
 
-/* =========================================
-   PORTADA FINAL DE PRUEBA
-========================================= */
 
-.portada-prueba {
+/* =====================================================
+   PORTADA FINAL
+===================================================== */
+
+.portada {
     position: absolute;
 
     inset: 0;
 
-    background: var(--verde);
+    background:
+        linear-gradient(
+            145deg,
+            #344131,
+            var(--verde) 58%,
+            #293429 100%
+        );
 
     color: var(--marfil);
 
@@ -318,18 +530,31 @@ body {
     flex-direction: column;
 
     align-items: center;
+
+    transform:
+        translateY(8px);
 }
 
-.monograma-portada {
-    font-size: 58px;
+.portada-iniciales {
+    font-size: 61px;
 
     letter-spacing: 8px;
+
+    color: var(--marfil);
 
     margin-bottom: 20px;
 }
 
-.linea {
-    width: 70px;
+.portada-iniciales span {
+    font-size: 31px;
+
+    font-style: italic;
+
+    color: var(--dorado);
+}
+
+.portada-linea {
+    width: 72px;
     height: 1px;
 
     background: var(--dorado);
@@ -337,92 +562,110 @@ body {
     margin-bottom: 22px;
 }
 
-.portada-contenido h1 {
-    font-size: 42px;
+.portada-etiqueta {
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    margin-left: 6px;
+
+    color: #d8ccb7;
+}
+
+.portada h1 {
+    margin-top: 16px;
+
+    font-size: 43px;
 
     font-weight: normal;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
-.portada-contenido p {
-    margin-top: 14px;
+.portada p {
+    margin-top: 16px;
 
-    font-size: 17px;
+    font-size: 11px;
 
     letter-spacing: 5px;
+
+    color: #d8ccb7;
 }
 
-/* =========================================
-   ANIMACIONES
-========================================= */
 
-.sobre.abrir .tapa {
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+.sobre.abrir .solapa {
     animation:
-        abrirTapa
-        1.05s
-        cubic-bezier(.65, .05, .36, 1)
+        abrirSolapa
+        1.15s
+        cubic-bezier(.65,.05,.36,1)
         forwards;
 }
 
-.sobre.abrir .carta {
+.sobre.abrir .tarjeta {
     animation:
-        sacarCarta
-        1.15s
-        cubic-bezier(.22, .61, .36, 1)
+        sacarTarjeta
+        1.25s
+        cubic-bezier(.22,.61,.36,1)
         forwards;
 }
 
 .sobre.abrir .sello {
     animation:
-        desaparecerSello
-        0.45s
+        salirSello
+        .45s
         ease
         forwards;
 }
 
-.intro.finalizar .sobre-contenedor {
+.intro.finalizar .escena {
     animation:
-        desaparecerSobre
-        0.7s
-        ease
+        desaparecerEscena
+        .75s
+        cubic-bezier(.4,0,.2,1)
         forwards;
 }
 
-.intro.finalizar .portada-prueba {
+.intro.finalizar .portada {
     animation:
         aparecerPortada
-        0.8s
+        .95s
         ease
         forwards;
 }
 
-/* =========================================
+
+/* =====================================================
    KEYFRAMES
-========================================= */
+===================================================== */
 
-@keyframes abrirTapa {
+@keyframes abrirSolapa {
 
     0% {
-        transform: rotateX(0deg);
+        transform:
+            rotateX(0deg);
     }
 
     100% {
-        transform: rotateX(-180deg);
+        transform:
+            rotateX(-180deg);
     }
 }
 
-@keyframes sacarCarta {
+@keyframes sacarTarjeta {
 
     0% {
         opacity: 0;
 
         transform:
             translateX(-50%)
-            translateY(55px);
+            translateY(48px);
     }
 
-    25% {
+    20% {
         opacity: 1;
     }
 
@@ -431,33 +674,42 @@ body {
 
         transform:
             translateX(-50%)
-            translateY(-125px);
+            translateY(-132px);
     }
 }
 
-@keyframes desaparecerSello {
+@keyframes salirSello {
 
     0% {
         opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes desaparecerSobre {
-
-    0% {
-        opacity: 1;
-
-        transform: scale(1);
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
     100% {
         opacity: 0;
 
-        transform: scale(1.03);
+        transform:
+            translate(-50%, -50%)
+            scale(.88);
+    }
+}
+
+@keyframes desaparecerEscena {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(1.025);
     }
 }
 
@@ -472,51 +724,81 @@ body {
     }
 }
 
-/* =========================================
+
+/* =====================================================
    MÓVIL
-========================================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
-    .sobre-contenedor {
-        width: 320px;
-        height: 211px;
+    .escena {
+        width: 340px;
+        height: 230px;
     }
 
-    .monograma {
-        font-size: 31px;
+    .sobre {
+        width: 330px;
+        height: 210px;
     }
 
-    .monograma span {
-        font-size: 21px;
+    .iniciales {
+        font-size: 29px;
+
+        letter-spacing: 3px;
+    }
+
+    .iniciales span {
+        font-size: 18px;
+
+        margin: 0 3px;
     }
 
     .sello {
-        width: 54px;
-        height: 54px;
-
-        font-size: 11px;
+        width: 52px;
+        height: 52px;
     }
 
-    .carta-titulo {
-        font-size: 14px;
-
-        letter-spacing: 6px;
+    .sello-borde {
+        font-size: 9px;
     }
 
-    .carta-nombres {
+    .tarjeta-nombres {
         font-size: 27px;
     }
 
-    .monograma-portada {
-        font-size: 43px;
+    .tarjeta-small {
+        font-size: 9px;
+
+        letter-spacing: 5px;
     }
 
-    .portada-contenido h1 {
+    .tarjeta-fecha {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .portada-iniciales {
+        font-size: 45px;
+    }
+
+    .portada-iniciales span {
+        font-size: 24px;
+    }
+
+    .portada h1 {
         font-size: 30px;
     }
 
-    .portada-contenido p {
-        font-size: 14px;
+    .portada-etiqueta {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+    .portada p {
+        font-size: 9px;
+
+        letter-spacing: 3px;
     }
 }
