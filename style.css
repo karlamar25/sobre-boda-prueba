@@ -24,18 +24,15 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-
-/* ==================================================
+/* =========================================
    INTRO
-================================================== */
+========================================= */
 
 .intro {
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     background: #ffffff;
 
     display: flex;
@@ -43,61 +40,51 @@ body {
     justify-content: center;
 
     overflow: hidden;
-
     z-index: 9999;
 }
 
-
-/* ==================================================
+/* =========================================
    SOBRE
-================================================== */
+========================================= */
 
 .sobre-contenedor {
     position: relative;
-
     width: 440px;
     height: 290px;
 
     perspective: 1400px;
 
-    z-index: 10;
+    z-index: 20;
 }
 
 .sobre {
     position: relative;
-
     width: 100%;
     height: 100%;
 
     transform-style: preserve-3d;
 
-    filter:
-        drop-shadow(
-            0 22px 28px var(--sombra)
-        );
+    filter: drop-shadow(
+        0 22px 28px var(--sombra)
+    );
 }
 
-
-/* ==================================================
-   INTERIOR
-================================================== */
+/* Interior */
 
 .interior-sobre {
     position: absolute;
-
     inset: 0;
 
     background: var(--marfil);
 
-    border-radius: 2px;
+    border-radius: 3px;
 
     z-index: 1;
 }
 
-
-/* ==================================================
+/* =========================================
    CARTA
-================================================== */
+========================================= */
 
 .carta {
     position: absolute;
@@ -117,11 +104,11 @@ body {
     border: 1px solid rgba(183, 154, 98, 0.35);
 
     box-shadow:
-        0 8px 18px rgba(0, 0, 0, 0.12);
-
-    z-index: 3;
+        0 10px 25px rgba(0, 0, 0, 0.12);
 
     opacity: 0;
+
+    z-index: 3;
 }
 
 .carta-contenido {
@@ -134,11 +121,11 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 18px;
-
     text-align: center;
 
     color: var(--verde);
+
+    gap: 18px;
 }
 
 .carta-titulo {
@@ -159,10 +146,9 @@ body {
     color: var(--verde);
 }
 
-
-/* ==================================================
+/* =========================================
    FRENTE DEL SOBRE
-================================================== */
+========================================= */
 
 .sobre-frente {
     position: absolute;
@@ -187,10 +173,9 @@ body {
     z-index: 6;
 }
 
-
-/* ==================================================
-   TAPA SUPERIOR
-================================================== */
+/* =========================================
+   TAPA
+========================================= */
 
 .tapa {
     position: absolute;
@@ -217,31 +202,9 @@ body {
     z-index: 8;
 }
 
-
-/* ==================================================
-   BORDE DORADO SUTIL
-================================================== */
-
-.tapa::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border-top: 1px solid rgba(183, 154, 98, 0.85);
-
-    pointer-events: none;
-}
-
-
-/* ==================================================
+/* =========================================
    MONOGRAMA
-================================================== */
+========================================= */
 
 .monograma {
     position: absolute;
@@ -249,7 +212,8 @@ body {
     left: 50%;
     top: 42%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     color: var(--marfil);
 
@@ -270,10 +234,9 @@ body {
     margin: 0 5px;
 }
 
-
-/* ==================================================
-   SELLO MARFIL
-================================================== */
+/* =========================================
+   SELLO
+========================================= */
 
 .sello {
     position: absolute;
@@ -297,13 +260,13 @@ body {
             #DED2BD 100%
         );
 
-    border:
-        2px solid #D2C3A9;
+    border: 2px solid #D2C3A9;
 
     box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.25);
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -322,10 +285,9 @@ body {
     margin: 0 2px;
 }
 
-
-/* ==================================================
-   PORTADA DE PRUEBA
-================================================== */
+/* =========================================
+   PORTADA FINAL DE PRUEBA
+========================================= */
 
 .portada-prueba {
     position: absolute;
@@ -363,6 +325,15 @@ body {
 
     letter-spacing: 8px;
 
+    margin-bottom: 20px;
+}
+
+.linea {
+    width: 70px;
+    height: 1px;
+
+    background: var(--dorado);
+
     margin-bottom: 22px;
 }
 
@@ -382,64 +353,64 @@ body {
     letter-spacing: 5px;
 }
 
-
-/* ==================================================
+/* =========================================
    ANIMACIONES
-================================================== */
+========================================= */
 
 .sobre.abrir .tapa {
     animation:
-        abrirTapa 1.05s
+        abrirTapa
+        1.05s
         cubic-bezier(.65, .05, .36, 1)
         forwards;
 }
 
 .sobre.abrir .carta {
     animation:
-        sacarCarta 1.15s
+        sacarCarta
+        1.15s
         cubic-bezier(.22, .61, .36, 1)
         forwards;
 }
 
 .sobre.abrir .sello {
     animation:
-        desaparecerSello 0.45s
+        desaparecerSello
+        0.45s
         ease
         forwards;
 }
 
 .intro.finalizar .sobre-contenedor {
     animation:
-        desaparecerSobre 0.7s
+        desaparecerSobre
+        0.7s
         ease
         forwards;
 }
 
 .intro.finalizar .portada-prueba {
     animation:
-        aparecerPortada 0.8s
+        aparecerPortada
+        0.8s
         ease
         forwards;
 }
 
-
-/* ==================================================
+/* =========================================
    KEYFRAMES
-================================================== */
+========================================= */
 
 @keyframes abrirTapa {
 
     0% {
-        transform:
-            rotateX(0deg);
+        transform: rotateX(0deg);
     }
 
     100% {
-        transform:
-            rotateX(-180deg);
+        transform: rotateX(-180deg);
     }
 }
-
 
 @keyframes sacarCarta {
 
@@ -464,7 +435,6 @@ body {
     }
 }
 
-
 @keyframes desaparecerSello {
 
     0% {
@@ -476,20 +446,20 @@ body {
     }
 }
 
-
 @keyframes desaparecerSobre {
 
     0% {
         opacity: 1;
+
         transform: scale(1);
     }
 
     100% {
         opacity: 0;
+
         transform: scale(1.03);
     }
 }
-
 
 @keyframes aparecerPortada {
 
@@ -502,10 +472,9 @@ body {
     }
 }
 
-
-/* ==================================================
+/* =========================================
    MÓVIL
-================================================== */
+========================================= */
 
 @media (max-width: 600px) {
 
