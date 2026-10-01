@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const intro = document.getElementById("intro");
-    const sobre = document.querySelector(".sobre");
+    const sobre = document.getElementById("sobre");
+    const sobreContenedor =
+        document.getElementById("sobre-contenedor");
 
     /*
-     * 1. EL SOBRE APARECE CERRADO
+     * SOBRE CERRADO
      *
-     * Esperamos 900 ms antes de comenzar
-     * para que el visitante pueda verlo.
+     * Se muestra primero durante un momento
+     * antes de comenzar la animación.
      */
 
     setTimeout(function () {
@@ -18,18 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * 2. EL SOBRE SE ABRE
+     * DESPUÉS DE ABRIR EL SOBRE
      *
-     * La carta sale del sobre mientras
-     * la tapa se abre.
-     */
-
-
-    /*
-     * 3. PASAMOS A LA PORTADA
-     *
-     * Después de aproximadamente 3 segundos
-     * aparece la portada de prueba.
+     * Pasamos a la portada final.
      */
 
     setTimeout(function () {
@@ -40,23 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * 4. EL INTRO TERMINA COMPLETAMENTE
+     * TERMINAMOS EL INTRO
      *
-     * Dejamos solamente la portada visible.
+     * El sobre desaparece completamente.
      */
 
     setTimeout(function () {
 
-        intro.style.background = "transparent";
-
-        const sobreContenedor =
-            document.querySelector(".sobre-contenedor");
-
-        if (sobreContenedor) {
-
-            sobreContenedor.style.display = "none";
-
-        }
+        sobreContenedor.style.display = "none";
 
     }, 3500);
 
