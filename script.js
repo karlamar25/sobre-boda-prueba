@@ -2,14 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const intro = document.getElementById("intro");
     const sobre = document.getElementById("sobre");
-    const sobreContenedor =
-        document.getElementById("sobre-contenedor");
+    const escena = document.getElementById("escena");
 
     /*
-     * SOBRE CERRADO
-     *
-     * Se muestra primero durante un momento
-     * antes de comenzar la animación.
+     * EL SOBRE APARECE CERRADO
      */
 
     setTimeout(function () {
@@ -20,28 +16,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * DESPUÉS DE ABRIR EL SOBRE
-     *
-     * Pasamos a la portada final.
+     * TRANSICIÓN A LA PORTADA
      */
 
     setTimeout(function () {
 
         intro.classList.add("finalizar");
 
-    }, 2700);
+    }, 2850);
 
 
     /*
      * TERMINAMOS EL INTRO
-     *
-     * El sobre desaparece completamente.
      */
 
     setTimeout(function () {
 
-        sobreContenedor.style.display = "none";
+        escena.style.display = "none";
 
-    }, 3500);
+    }, 3700);
 
 });
