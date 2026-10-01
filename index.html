@@ -1,40 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sobre K & R</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Karla & Ricardo</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
-    <div class="sobre-intro">
+    <!-- =========================================
+         INTRODUCCIÓN AUTOMÁTICA
+    ========================================== -->
 
-        <div class="sobre">
+    <div
+        class="intro"
+        id="intro"
+    >
 
-            <div class="tapa"></div>
+        <!-- PASO 1: SOBRE CERRADO -->
 
-            <div class="papel">
-                <span>K & R</span>
+        <div
+            class="sobre-contenedor"
+            id="sobre-contenedor"
+        >
+
+            <div class="sobre">
+
+                <!-- Interior del sobre -->
+
+                <div class="interior-sobre"></div>
+
+                <!-- Carta -->
+
+                <div class="carta">
+
+                    <div class="carta-contenido">
+
+                        <span class="carta-titulo">
+                            BODA
+                        </span>
+
+                        <span class="carta-nombres">
+                            Karla y Ricardo
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- Parte inferior del sobre -->
+
+                <div class="sobre-frente"></div>
+
+                <!-- Tapa -->
+
+                <div class="tapa">
+
+                    <div class="monograma">
+                        K <span>&</span> R
+                    </div>
+
+                </div>
+
+                <!-- Sello -->
+
+                <div class="sello">
+                    K<span>&</span>R
+                </div>
+
             </div>
 
-            <div class="sello">
-                K & R
+        </div>
+
+
+        <!-- PASO 4: PORTADA DE PRUEBA -->
+
+        <div
+            class="portada-prueba"
+            id="portada-prueba"
+        >
+
+            <div class="portada-contenido">
+
+                <div class="monograma-portada">
+                    K & R
+                </div>
+
+                <h1>
+                    Karla & Ricardo
+                </h1>
+
+                <p>
+                    Nuestra boda
+                </p>
+
             </div>
 
         </div>
 
     </div>
 
-    <div class="portada">
-        <h1>Karla & Ricardo</h1>
-        <p>Nuestra boda</p>
-    </div>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
