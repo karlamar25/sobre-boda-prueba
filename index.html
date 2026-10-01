@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Karla & Ricardo</title>
 
     <link rel="stylesheet" href="./style.css">
@@ -10,55 +11,98 @@
 
 <body>
 
-    <div id="intro" class="intro">
+    <main class="intro" id="intro">
 
-        <div id="sobre-contenedor" class="sobre-contenedor">
+        <div class="escena" id="escena">
 
-            <div id="sobre" class="sobre">
+            <div class="sobre" id="sobre">
 
-                <div class="interior-sobre"></div>
+                <!-- Papel interior -->
+                <div class="papel-interior"></div>
 
-                <div class="carta">
-                    <div class="carta-contenido">
-                        <div class="carta-titulo">BODA</div>
-                        <div class="carta-nombres">Karla y Ricardo</div>
+                <!-- Tarjeta -->
+                <div class="tarjeta">
+
+                    <div class="tarjeta-marco">
+
+                        <div class="tarjeta-small">
+                            BODA
+                        </div>
+
+                        <div class="tarjeta-linea"></div>
+
+                        <div class="tarjeta-nombres">
+                            Karla
+                            <span>&amp;</span>
+                            Ricardo
+                        </div>
+
+                        <div class="tarjeta-fecha">
+                            05 · 12 · 2026
+                        </div>
+
                     </div>
+
                 </div>
 
+                <!-- Parte posterior del sobre -->
+                <div class="sobre-base"></div>
+
+                <!-- Frente -->
                 <div class="sobre-frente"></div>
 
-                <div class="tapa">
-                    <div class="monograma">
+                <!-- Solapa -->
+                <div class="solapa">
+
+                    <div class="iniciales">
                         K <span>&amp;</span> R
                     </div>
+
                 </div>
 
+                <!-- Sello -->
                 <div class="sello">
-                    K <span>&amp;</span> R
+
+                    <div class="sello-borde">
+                        <span>K</span>
+                        <i>&amp;</i>
+                        <span>R</span>
+                    </div>
+
                 </div>
 
             </div>
+
         </div>
 
-        <div id="portada-prueba" class="portada-prueba">
+        <!-- Transición final -->
+        <section class="portada" id="portada">
 
             <div class="portada-contenido">
 
-                <div class="monograma-portada">
-                    K &amp; R
+                <div class="portada-iniciales">
+                    K <span>&amp;</span> R
                 </div>
 
-                <div class="linea"></div>
+                <div class="portada-linea"></div>
 
-                <h1>Karla &amp; Ricardo</h1>
+                <div class="portada-etiqueta">
+                    NUESTRA BODA
+                </div>
 
-                <p>Nuestra boda</p>
+                <h1>
+                    Karla &amp; Ricardo
+                </h1>
+
+                <p>
+                    05 · DICIEMBRE · 2026
+                </p>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <script src="./script.js"></script>
 
